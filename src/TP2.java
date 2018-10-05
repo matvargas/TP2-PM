@@ -1,5 +1,5 @@
 
-class Circle {
+class Circle extends Point {
     private double radius;
     private String color;
     private double length;
@@ -14,6 +14,8 @@ class Circle {
     private double calculateLength(double radius){return 2*radius*Math.PI;}
     public String toString(){ return "Circulo: raio = " + radius + " cor = " + color;}
 }
+
+class Triangle extends Point {}
 
 class Point {
     private float x, y;
