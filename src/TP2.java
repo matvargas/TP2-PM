@@ -33,6 +33,13 @@ class Triangle extends Point {
             triangleArea = (Math.sqrt(trianglePerimeter*(trianglePerimeter-a)*(trianglePerimeter-b)*(trianglePerimeter-c)));
         }
     }
+    @Override
+    public String toString() {
+        return("Triângulo " + this.triangleType
+                + " com lados de comprimento: " + this.aSideLength + ", " + this.bSideLength + ", " + this.cSideLength
+                + "\n O perímetro é: " + this.trianglePerimeter
+                + "\n A área do triângulo é: " + this.triangleArea);
+    }
 }
 
 class Point {
