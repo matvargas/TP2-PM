@@ -1,4 +1,3 @@
-
 class Circle extends Point {
     private double radius;
     private String color;
@@ -15,7 +14,26 @@ class Circle extends Point {
     public String toString(){ return "Circulo: raio = " + radius + " cor = " + color;}
 }
 
-class Triangle extends Point {}
+class Triangle extends Point {
+    private double aSideLength, bSideLength, cSideLength, trianglePerimeter, triangleArea;
+    private String triangleType;
+    public double getASideLength(){return this.aSideLength;}
+    public double getBSideLength(){return this.bSideLength;}
+    public double getCSideLength(){return this.cSideLength;}
+    public Triangle(float a, float b, float c){
+        this.trianglePerimeter = a + b + c;
+        if(a == b && b == c) {
+            triangleType = "EQUILATERAL";
+            triangleArea = (Math.sqrt(3)/4)*(Math.pow(a,2));
+        } else if (a == b && b != c) {
+            triangleType = "ISOCELES";
+            triangleArea = ((c*Math.sqrt(Math.pow(a, 2) - (Math.pow(c, 2))/4))/2);
+        } else if (a != b && a != c && c != b) {
+            triangleType = "SCALENE";
+            triangleArea = (Math.sqrt(trianglePerimeter*(trianglePerimeter-a)*(trianglePerimeter-b)*(trianglePerimeter-c)));
+        }
+    }
+}
 
 class Point {
     private float x, y;
