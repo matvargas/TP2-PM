@@ -21,6 +21,8 @@ class Triangle extends Point {
     public double getBSideLength(){return this.bSideLength;}
     public double getCSideLength(){return this.cSideLength;}
     public Triangle(float a, float b, float c){
+        if(!isValidTriangle(a, b, c))
+            return;
         this.trianglePerimeter = a + b + c;
         if(a == b && b == c) {
             triangleType = "EQUILATERAL";
@@ -32,6 +34,25 @@ class Triangle extends Point {
             triangleType = "SCALENE";
             triangleArea = (Math.sqrt(trianglePerimeter*(trianglePerimeter-a)*(trianglePerimeter-b)*(trianglePerimeter-c)));
         }
+    }
+    private boolean isValidTriangle(float a, float b, float c){
+        boolean answer = false;
+        if(a + b > c) {
+            answer = true;
+        } else {
+            answer = false;
+        }
+        if(a + c > b) {
+            answer = true;
+        } else {
+            answer = false;
+        }
+        if(c + b > a) {
+            answer = true;
+        } else {
+            answer = false;
+        }
+        return answer;
     }
     @Override
     public String toString() {
